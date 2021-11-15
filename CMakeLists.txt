@@ -11,7 +11,9 @@ include_directories(${trees_bin_include_dirs})
 
 set(source_files
         src/trees/binary_search_tree.h
-        src/trees/binary_tree.h)
+        src/trees/binary_tree.h
+        src/trees/timer.cc
+        src/trees/timer.h)
 
 set(test_files
         src/trees/binary_search_tree_test.cc)
@@ -59,4 +61,14 @@ add_executable(
         ${source_files}
 )
 target_link_libraries(tests gtest_main)
+
+
+set_target_properties(tests
+        PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${tree_bin_dir}")
+
+set_target_properties(trees.out
+        PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${tree_bin_dir}")
+
 
